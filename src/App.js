@@ -18,9 +18,12 @@ class App extends Component {
     todos.push({'task':task,'status':'incompleted'})
     this.setState({ todos: todos });
   }
-  updateTodoStatus(index){
+  updateTodoStatus(index,e){
     var todos= this.state.todos.slice();
-    todos[index].status='completed';
+    if(e.target.checked)
+      todos[index].status='completed';
+    else
+      todos[index].status='incompleted';
     this.setState({ todos: todos });
   }
 
